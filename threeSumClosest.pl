@@ -14,14 +14,13 @@ print Dumper @result;
 sub threeSum(){
     my @arr = @_;
     my $tar = pop @arr;
-    my ($res,$hash,$sum,$min);
+    my ($res,$hash,$min);
     for (my $x=0;$x<=$#arr-2;$x++){
         for (my $y=$x+1;$y<=$#arr-1;$y++){
             for (my $z=$y+1;$z<=$#arr;$z++){
-                $min = abs(@arr[$x]+@arr[$y]+@arr[$z] - $tar) unless $min;
-                if (abs(@arr[$x]+@arr[$y]+@arr[$z] - $tar) <= $min){
-                    @res = sort (@arr[$x],@arr[$y],@arr[$z]); 
-                }
+                my $abs = abs(@arr[$x]+@arr[$y]+@arr[$z] - $tar);
+                $min = $abs unless $min;
+                @res = sort (@arr[$x],@arr[$y],@arr[$z]) if ($abs <= $min);
             }    
         }
     }
