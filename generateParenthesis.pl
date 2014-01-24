@@ -19,7 +19,7 @@ sub generateParenthesis(){
 
 sub dfs(){
     my ($currDep,$maxDep,$currLef,$totalLef,$str) = @_;
-    if ($totalLef * 2 > $maxDep){
+    if ($totalLef*2 > $maxDep){
         return;
     }
     if ($currDep == $maxDep){
@@ -28,9 +28,9 @@ sub dfs(){
     } 
     foreach ('(',')'){
         if ($_ eq '('){
-            dfs($currDep + 1,$maxDep,$currLef + 1,$totalLef + 1,$str.$_); 
+            dfs($currDep+1,$maxDep,$currLef+1,$totalLef+1,$str.$_); 
         }else{
-            dfs($currDep + 1,$maxDep,$currLef - 1,$totalLef,$str.$_) if $currLef;
+            dfs($currDep+1,$maxDep,$currLef-1,$totalLef,$str.$_) if $currLef;
         }
     }
 }
