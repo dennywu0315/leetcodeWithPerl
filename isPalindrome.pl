@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use Data::Dumper;
 
 #Determine whether an integer is a palindrome. Do this without extra space.
